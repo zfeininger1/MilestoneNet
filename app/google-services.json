@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "759842171439",
+    "project_id": "milestonenet-bc8f1",
+    "storage_bucket": "milestonenet-bc8f1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:759842171439:android:9200146c1dcca3931c34da",
+        "android_client_info": {
+          "package_name": "localhost.milestonenet"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0M-tSMxF7cvqNhN2NdCEL1mhmB0kt0_I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
