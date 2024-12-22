@@ -20,11 +20,14 @@
             android:theme="@style/Theme.MilestoneNet" />
         <activity
             android:name=".MainActivity"
+            android:exported="false"
+            android:theme="@style/Theme.MilestoneNet" />
+        <activity
+            android:name=".StartingActivity"
             android:exported="true"
             android:theme="@style/Theme.MilestoneNet">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
