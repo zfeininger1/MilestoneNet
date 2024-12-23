@@ -33,7 +33,7 @@ public class StartingActivity extends AppCompatActivity {
 
         getStartedButton.setOnClickListener(view -> {
             // Start the main activity
-            Intent intent = new Intent(StartingActivity.this, LoginActivity.class);
+            Intent intent = new Intent(StartingActivity.this, RegisterActivity.class);
             startActivity(intent);
         });
 
