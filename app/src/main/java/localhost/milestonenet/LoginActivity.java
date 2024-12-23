@@ -5,7 +5,6 @@ import android.os.Bundle;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -25,7 +24,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     public static String TAG = "ShoppingList";
     private FirebaseAuth mAuth;
@@ -37,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
 
         mAuth = FirebaseAuth.getInstance();
         signInButton = findViewById(R.id.loginButton);
@@ -61,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 mAuth.signInWithEmailAndPassword(email, password)
-                        .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
+                        .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
@@ -74,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
                                 } else {
                                     // If sign in fails, display a message to the user.
                                     Log.w(TAG, "signInWithEmail:failure", task.getException());
-                                    Toast.makeText(MainActivity.this, "Authentication failed.",
+                                    Toast.makeText(LoginActivity.this, "Authentication failed.",
                                             Toast.LENGTH_SHORT).show();
                                 }
                             }
@@ -96,12 +95,12 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 mAuth.createUserWithEmailAndPassword(email, password)
-                        .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
+                        .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
                                     Log.d(TAG, "createdUserWithEmail:success");
-                                    Toast.makeText(MainActivity.this, "YOU HAVE BEEN SUCCESSFULLY REGISTERED!",
+                                    Toast.makeText(LoginActivity.this, "YOU HAVE BEEN SUCCESSFULLY REGISTERED!",
                                             Toast.LENGTH_SHORT).show();
                                     DatabaseReference userCountRef = FirebaseDatabase.getInstance().getReference("message");
                                     userCountRef.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -122,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
                                     });
                                 } else {
                                     Log.d(TAG, "createdUserWithEmail:failure");
-                                    Toast.makeText(MainActivity.this, "YOU HAVE FAILED TO REGISTER, ENTER A VALID EMAIL/PASSWORD",
+                                    Toast.makeText(LoginActivity.this, "YOU HAVE FAILED TO REGISTER, ENTER A VALID EMAIL/PASSWORD",
                                             Toast.LENGTH_SHORT).show();
                                 }
                             }
