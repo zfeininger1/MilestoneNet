@@ -16,6 +16,8 @@ public class RegisterActivity extends AppCompatActivity {
     Button nextButton;
     EditText firstName;
     EditText lastName;
+    EditText password;
+    EditText email;
     DatabaseReference database;
     DatabaseReference newUserRef;
 
@@ -27,6 +29,8 @@ public class RegisterActivity extends AppCompatActivity {
         nextButton = findViewById(R.id.nextButton);
         firstName = findViewById(R.id.firstName);
         lastName = findViewById(R.id.lastName);
+        password = findViewById(R.id.password);
+        email = findViewById(R.id.email);
 
         nextButton.setOnClickListener(view -> {
 //            users user = new users(null, "John", "Doe", "email@email.com",  "Male","30");
@@ -43,6 +47,8 @@ public class RegisterActivity extends AppCompatActivity {
             users user = new users();
             user.setFirstName(firstName.getText().toString());
             user.setLastName(lastName.getText().toString());
+            user.setPassword(password.getText().toString());
+            user.setEmail(email.getText().toString());
             // Start the main activity
             Intent intent = new Intent(RegisterActivity.this, RegisterAgeActivity.class);
             intent.putExtra("newUser", user);

@@ -29,7 +29,7 @@ public class LoginActivity extends AppCompatActivity {
     public static String TAG = "ShoppingList";
     private FirebaseAuth mAuth;
     private Button signInButton;
-    private Button regButton;
+//    private Button regButton;
     private EditText editTextEmail;
     private EditText editTextPassword;
 
@@ -40,7 +40,7 @@ public class LoginActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         signInButton = findViewById(R.id.loginButton);
-        regButton =  findViewById(R.id.registerButton);
+//        regButton =  findViewById(R.id.registerButton);
 
         editTextEmail = findViewById(R.id.editTextTextEmailAddress);
         editTextPassword = findViewById(R.id.editTextTextPassword);
@@ -81,53 +81,53 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        regButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String email = editTextEmail.getText().toString();
-                String password = editTextPassword.getText().toString();
-                if (email.equals("") || email.equals(null)) {
-                    email = "1";
-                }
-                if (password.equals("") || password.equals(null)) {
-                    password = "1";
-                    email = "1";
-                }
-
-                mAuth.createUserWithEmailAndPassword(email, password)
-                        .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (task.isSuccessful()) {
-                                    Log.d(TAG, "createdUserWithEmail:success");
-                                    Toast.makeText(LoginActivity.this, "YOU HAVE BEEN SUCCESSFULLY REGISTERED!",
-                                            Toast.LENGTH_SHORT).show();
-                                    DatabaseReference userCountRef = FirebaseDatabase.getInstance().getReference("message");
-                                    userCountRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                                        @Override
-                                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                            Integer currentValue = dataSnapshot.getValue(Integer.class);
-                                            if (currentValue != null) {
-                                                int newValue = currentValue + 1;
-                                                userCountRef.setValue(newValue);
-
-                                            }
-                                        }
-
-                                        @Override
-                                        public void onCancelled(@NonNull DatabaseError error) {
-
-                                        }
-                                    });
-                                } else {
-                                    Log.d(TAG, "createdUserWithEmail:failure");
-                                    Toast.makeText(LoginActivity.this, "YOU HAVE FAILED TO REGISTER, ENTER A VALID EMAIL/PASSWORD",
-                                            Toast.LENGTH_SHORT).show();
-                                }
-                            }
-                        });
-            }
-        });
+//        regButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                String email = editTextEmail.getText().toString();
+//                String password = editTextPassword.getText().toString();
+//                if (email.equals("") || email.equals(null)) {
+//                    email = "1";
+//                }
+//                if (password.equals("") || password.equals(null)) {
+//                    password = "1";
+//                    email = "1";
+//                }
+//
+//                mAuth.createUserWithEmailAndPassword(email, password)
+//                        .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
+//                            @Override
+//                            public void onComplete(@NonNull Task<AuthResult> task) {
+//                                if (task.isSuccessful()) {
+//                                    Log.d(TAG, "createdUserWithEmail:success");
+//                                    Toast.makeText(LoginActivity.this, "YOU HAVE BEEN SUCCESSFULLY REGISTERED!",
+//                                            Toast.LENGTH_SHORT).show();
+//                                    DatabaseReference userCountRef = FirebaseDatabase.getInstance().getReference("message");
+//                                    userCountRef.addListenerForSingleValueEvent(new ValueEventListener() {
+//                                        @Override
+//                                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                                            Integer currentValue = dataSnapshot.getValue(Integer.class);
+//                                            if (currentValue != null) {
+//                                                int newValue = currentValue + 1;
+//                                                userCountRef.setValue(newValue);
+//
+//                                            }
+//                                        }
+//
+//                                        @Override
+//                                        public void onCancelled(@NonNull DatabaseError error) {
+//
+//                                        }
+//                                    });
+//                                } else {
+//                                    Log.d(TAG, "createdUserWithEmail:failure");
+//                                    Toast.makeText(LoginActivity.this, "YOU HAVE FAILED TO REGISTER, ENTER A VALID EMAIL/PASSWORD",
+//                                            Toast.LENGTH_SHORT).show();
+//                                }
+//                            }
+//                        });
+//            }
+//        });
 
     }
 }

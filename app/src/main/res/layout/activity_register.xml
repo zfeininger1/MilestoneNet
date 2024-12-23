@@ -57,6 +57,42 @@
                 android:textColor="@android:color/black"
                 android:textSize="16sp"/>
 
+            <EditText
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:autofillHints="LastName"
+                android:gravity="center"
+                android:hint="Email"
+                android:inputType="textPersonName"
+                android:padding="12dp"
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:autofillHints="LastName"
+                android:gravity="center"
+                android:hint="Password"
+                android:inputType="textPersonName"
+                android:padding="12dp"
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/passwordReqText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:text="@string/password_req"
+                android:textColor="@android:color/black"
+                android:textSize="11sp" />
+
             <Button
                 android:id="@+id/nextButton"
                 android:layout_width="match_parent"

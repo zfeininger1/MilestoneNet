@@ -57,16 +57,6 @@
                 android:textColor="@android:color/black"
                 android:textSize="16sp"/>
 
-            <TextView
-                android:id="@+id/passwordReqText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/password_req"
-                android:gravity="center"
-                android:fontFamily="sans-serif"
-                android:textColor="@android:color/black"
-                android:textSize="11sp"/>
-
             <Button
                 android:id="@+id/loginButton"
                 android:layout_width="match_parent"
@@ -79,16 +69,6 @@
                 android:textSize="16sp"/>
 
 
-            <Button
-                android:id="@+id/registerButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:text="@string/register"
-                android:backgroundTint="#1565C0"
-                android:padding="12dp"
-                android:textColor="@android:color/white"
-                android:textSize="16sp"/>
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>

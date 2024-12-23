@@ -13,22 +13,26 @@ public class users implements Serializable {
     private String gender;
     private String age;
     private Map<String, Boolean> substances;
+    private String password;
     public users() {
         this.substances = new HashMap<>();
         initalizeSubstances();
     }
 
-    public users(String id, String firstName, String lastName, String email, String gender, String age) {
+    public users(String id, String firstName, String lastName, String email, String gender, String age, String password) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email =  email;
         this.gender = gender;
         this.age = age;
+        this.password = password;
         this.substances = new HashMap<>();
         initalizeSubstances();
     }
 
+    public String getPassword() { return password; }
+    public void setPassword(String password) { this.password = password; }
     public String getId() { return id; }
     public void setId(String id) { this.id = id; }
     public String getFirstName() {return firstName; }
