@@ -1,9 +1,10 @@
 package localhost.milestonenet;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-public class users {
+public class users implements Serializable {
 
     private String id;
     private String firstName;
@@ -39,7 +40,7 @@ public class users {
     public String getGender() { return gender; }
     public void setGender(String gender) { this.gender = gender; }
     public String getAge() { return age; }
-    public void setAge() { this.age = age; }
+    public void setAge(String age) { this.age = age; }
     public void initalizeSubstances() {
         substances.put("Methamphetamine",false);
         substances.put("Ketamine",false);
