@@ -28,6 +28,12 @@
         <activity android:name=".RegisterDrugsActivity"
             android:exported="false"
             android:theme="@style/Theme.MilestoneNet" />
+        <activity android:name=".RegisterAgeActivity"
+            android:exported="false"
+            android:theme="@style/Theme.MilestoneNet" />
+        <activity android:name=".RegisterGenderActivity"
+            android:exported="false"
+            android:theme="@style/Theme.MilestoneNet" />
         <activity
             android:name=".StartingActivity"
             android:exported="true"

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    tools:context=".RegisterActivity">
+    tools:context=".RegisterAgeActivity">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -22,36 +22,23 @@
             android:padding="24dp">
 
             <TextView
-                android:id="@+id/registerTitle"
+                android:id="@+id/ageTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:text="What is your name?"
+                android:text="What is your age?"
                 android:textColor="@android:color/black"
                 android:fontFamily="sans-serif-medium"
                 android:textSize="24sp" />
 
             <EditText
-                android:id="@+id/firstName"
+                android:id="@+id/age"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:autofillHints="FirstName"
+                android:autofillHints="Age"
                 android:gravity="center"
-                android:hint="@string/first_name"
-                android:inputType="textPersonName"
-                android:padding="12dp"
-                android:layout_marginTop="12dp"
-                android:textColor="@android:color/black"
-                android:textSize="16sp"/>
-
-            <EditText
-                android:id="@+id/lastName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:autofillHints="LastName"
-                android:gravity="center"
-                android:hint="@string/last_name"
-                android:inputType="textPersonName"
+                android:hint="@string/age"
+                android:inputType="number"
                 android:padding="12dp"
                 android:layout_marginTop="12dp"
                 android:textColor="@android:color/black"
