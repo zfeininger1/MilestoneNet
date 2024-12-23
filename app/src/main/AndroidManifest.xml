@@ -22,6 +22,12 @@
             android:name=".LoginActivity"
             android:exported="false"
             android:theme="@style/Theme.MilestoneNet" />
+        <activity android:name=".RegisterActivity"
+            android:exported="false"
+            android:theme="@style/Theme.MilestoneNet" />
+        <activity android:name=".RegisterDrugsActivity"
+            android:exported="false"
+            android:theme="@style/Theme.MilestoneNet" />
         <activity
             android:name=".StartingActivity"
             android:exported="true"
