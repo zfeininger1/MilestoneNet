@@ -74,17 +74,19 @@ public class RegisterDrugsActivity extends AppCompatActivity {
                                 Log.d("TAGERROR", "createdUserWithEmail:success");
                                 Toast.makeText(RegisterDrugsActivity.this, "YOU HAVE BEEN SUCCESSFULLY REGISTERED!",
                                         Toast.LENGTH_SHORT).show();
+                                // Start the main activity
+                                Intent intent = new Intent(RegisterDrugsActivity.this, LoginActivity.class);
+                                startActivity(intent);
                             } else {
                                 Log.d("LOGERROR", "createdUserWithEmail:failure");
                                 Toast.makeText(RegisterDrugsActivity.this, "YOU HAVE FAILED TO REGISTER, ENTER A VALID EMAIL/PASSWORD",
                                         Toast.LENGTH_SHORT).show();
+                                // Start the main activity
+                                Intent intent = new Intent(RegisterDrugsActivity.this, StartingActivity.class);
+                                startActivity(intent);
                             }
                         }
                     });
-
-            // Start the main activity
-            Intent intent = new Intent(RegisterDrugsActivity.this, LoginActivity.class);
-            startActivity(intent);
         });
     }
 }
