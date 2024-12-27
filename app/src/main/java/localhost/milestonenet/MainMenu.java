@@ -25,17 +25,17 @@ public class MainMenu extends AppCompatActivity {
 
         bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
             Fragment selectedFragment = null;
-            Log.d("LOGERROR", String.valueOf(item.getItemId()));
-            if (item.getItemId() == 2131231331) {
+            Log.d("LOGERROR", String.valueOf(item.getTitle()));
+            if (String.valueOf(item.getTitle()).equals("Manage")) {
                 selectedFragment = new ManageFragment();
-            } else if (item.getItemId() == 2131231332) {
+            } else if (String.valueOf(item.getTitle()).equals("Purchases")) {
                 selectedFragment = new PurchasesFragment();
-            } else if (item.getItemId() == 2131230976) {
+            } else if (String.valueOf(item.getTitle()).equals("Home")) {
                 selectedFragment = new MainDisplayFragment();
-            } else if (item.getItemId() == 2131231333) {
+            } else if (String.valueOf(item.getTitle()).equals("Social")) {
                 selectedFragment = new SocialFragment();
-            } else if (item.getItemId() == 2131231330) {
-                Log.d("LOGERROR", "logout");
+            } else if (String.valueOf(item.getTitle()).equals("Logout")) {
+                Log.d("LOGERROR", "this needs to work ");
                 finish();
             }
             if (selectedFragment != null) {
