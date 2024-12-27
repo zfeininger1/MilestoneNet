@@ -1,6 +1,7 @@
 package localhost.milestonenet;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,29 +23,26 @@ public class MainMenu extends AppCompatActivity {
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomnavigationview);
         replaceFragment(new MainDisplayFragment());
 
-//        bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
-//            Fragment selectedFragment = null;
-//            switch (item.getItemId()) {
-//                case R.id.manage:
-//                    selectedFragment = new ManageFragment();
-//                    break;
-//                case R.id.purchases:
-//                    selectedFragment = new PurchasesFragment();
-//                    break;
-//                case R.id.home:
-//                    selectedFragment = new MainDisplayFragment();
-//                    break;
-//                case R.id.social:
-//                    selectedFragment = new SocialFragment();
-//                    break;
-////                case R.id.logout:
-//                    //logout
-//            }
-//            if (selectedFragment != null) {
-//                replaceFragment(selectedFragment);
-//            }
-//            return true;
-//        });
+        bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
+            Fragment selectedFragment = null;
+            Log.d("LOGERROR", String.valueOf(item.getItemId()));
+            if (item.getItemId() == 2131231331) {
+                selectedFragment = new ManageFragment();
+            } else if (item.getItemId() == 2131231332) {
+                selectedFragment = new PurchasesFragment();
+            } else if (item.getItemId() == 2131230976) {
+                selectedFragment = new MainDisplayFragment();
+            } else if (item.getItemId() == 2131231333) {
+                selectedFragment = new SocialFragment();
+            } else if (item.getItemId() == 2131231330) {
+                Log.d("LOGERROR", "logout");
+                finish();
+            }
+            if (selectedFragment != null) {
+                replaceFragment(selectedFragment);
+            }
+            return true;
+        });
 
     }
     private void replaceFragment(Fragment fragment) {
