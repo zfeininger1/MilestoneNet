@@ -7,13 +7,15 @@
     android:padding="16dp"
     tools:context=".RegisterGenderActivity">
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:layout_marginHorizontal="32dp"
         app:cardCornerRadius="16dp"
-        app:cardElevation="8dp">
+        app:cardElevation="8dp"
+        app:strokeColor="@color/colorPrimary"
+        app:strokeWidth="2dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -21,7 +23,7 @@
             android:orientation="vertical"
             android:padding="24dp">
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/genderTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -31,32 +33,35 @@
                 android:fontFamily="sans-serif-medium"
                 android:textSize="24sp" />
 
-            <EditText
-                android:id="@+id/gender"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:autofillHints="Gender"
-                android:gravity="center"
-                android:hint="@string/gender"
-                android:inputType="text"
-                android:padding="12dp"
+                app:hintEnabled="true"
                 android:layout_marginTop="12dp"
-                android:textColor="@android:color/black"
-                android:textSize="16sp"/>
+                android:hint="@string/gender">
 
-            <Button
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/gender"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints="Gender"
+                    android:inputType="text"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/nextButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:text="@string/next"
-                android:backgroundTint="#1565C0"
-                android:padding="12dp"
                 android:layout_marginVertical="12dp"
                 android:textColor="@android:color/white"
-                android:textSize="16sp"/>
+                android:textSize="16sp"
+                app:cornerRadius="8dp"/>
         </LinearLayout>
 
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
 </RelativeLayout>

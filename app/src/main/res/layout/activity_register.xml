@@ -7,13 +7,15 @@
     android:padding="16dp"
     tools:context=".RegisterActivity">
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:layout_marginHorizontal="32dp"
         app:cardCornerRadius="16dp"
-        app:cardElevation="8dp">
+        app:cardElevation="8dp"
+        app:strokeColor="@color/colorPrimary"
+        app:strokeWidth="2dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -21,7 +23,7 @@
             android:orientation="vertical"
             android:padding="24dp">
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/registerTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -31,59 +33,74 @@
                 android:fontFamily="sans-serif-medium"
                 android:textSize="24sp" />
 
-            <EditText
-                android:id="@+id/firstName"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:autofillHints="FirstName"
-                android:gravity="center"
-                android:hint="@string/first_name"
-                android:inputType="textPersonName"
-                android:padding="12dp"
+                app:hintEnabled="true"
                 android:layout_marginTop="12dp"
-                android:textColor="@android:color/black"
-                android:textSize="16sp"/>
+                android:hint="@string/first_name">
 
-            <EditText
-                android:id="@+id/lastName"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/firstName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints="FirstName"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:autofillHints="LastName"
-                android:gravity="center"
-                android:hint="@string/last_name"
-                android:inputType="textPersonName"
-                android:padding="12dp"
+                app:hintEnabled="true"
                 android:layout_marginTop="12dp"
-                android:textColor="@android:color/black"
-                android:textSize="16sp"/>
+                android:hint="@string/last_name">
 
-            <EditText
-                android:id="@+id/email"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/lastName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints="LastName"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:hintEnabled="true"
                 android:layout_marginTop="12dp"
-                android:autofillHints="LastName"
-                android:gravity="center"
-                android:hint="Email"
-                android:inputType="textPersonName"
-                android:padding="12dp"
-                android:textColor="@android:color/black"
-                android:textSize="16sp" />
+                android:hint="@string/email">
 
-            <EditText
-                android:id="@+id/password"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints="LastName"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:hintEnabled="true"
                 android:layout_marginTop="12dp"
-                android:autofillHints="LastName"
-                android:gravity="center"
-                android:hint="Password"
-                android:inputType="textPersonName"
-                android:padding="12dp"
-                android:textColor="@android:color/black"
-                android:textSize="16sp" />
+                android:hint="@string/password">
 
-            <TextView
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints="LastName"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/passwordReqText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -93,19 +110,18 @@
                 android:textColor="@android:color/black"
                 android:textSize="11sp" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/nextButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:text="@string/next"
-                android:backgroundTint="#1565C0"
-                android:padding="12dp"
-                android:layout_marginVertical="12dp"
+                app:cornerRadius="8dp"
+                app:strokeColor="@color/colorPrimary"
                 android:textColor="@android:color/white"
                 android:textSize="16sp"/>
         </LinearLayout>
 
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
 </RelativeLayout>

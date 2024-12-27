@@ -7,13 +7,15 @@
     android:padding="16dp"
     tools:context=".RegisterDrugsActivity">
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:layout_marginHorizontal="32dp"
         app:cardCornerRadius="16dp"
-        app:cardElevation="8dp">
+        app:cardElevation="8dp"
+        app:strokeColor="@color/colorPrimary"
+        app:strokeWidth="2dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -21,42 +23,46 @@
             android:orientation="vertical"
             android:padding="24dp">
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/registerDrugsTitle"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:text="What are you currently addicted to?"
+                android:gravity="center"
                 android:textColor="@android:color/black"
                 android:fontFamily="sans-serif-medium"
                 android:textSize="24sp" />
 
-            <EditText
-                android:id="@+id/drug"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:autofillHints="Drug"
-                android:gravity="center"
-                android:hint="Drug"
-                android:inputType="text"
-                android:padding="12dp"
+                app:hintEnabled="true"
                 android:layout_marginTop="12dp"
-                android:textColor="@android:color/black"
-                android:textSize="16sp"/>
+                android:hint="@string/drug">
 
-            <Button
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/drug"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints="Drug"
+                    android:layout_marginTop="12dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/registerButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:text="@string/register"
-                android:backgroundTint="#1565C0"
-                android:padding="12dp"
                 android:textColor="@android:color/white"
                 android:textSize="16sp"
-                android:layout_marginVertical="12dp"/>
+                android:layout_marginVertical="12dp"
+                app:cornerRadius="8dp"/>
         </LinearLayout>
 
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
 </RelativeLayout>
