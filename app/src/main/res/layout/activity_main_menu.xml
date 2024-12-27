@@ -6,13 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainMenu">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Logged In"
-        android:textSize="34sp"
-        tools:layout_editor_absoluteX="176dp"
-        tools:layout_editor_absoluteY="334dp" />
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
