@@ -22,6 +22,7 @@ public class MainMenu extends AppCompatActivity {
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomnavigationview);
         replaceFragment(new MainDisplayFragment());
+        bottomNavigationView.setSelectedItemId(R.id.home);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
             Fragment selectedFragment = null;
