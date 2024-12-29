@@ -46,6 +46,7 @@ public class RegisterDrugsActivity extends AppCompatActivity {
             user.setSubstancesStatus("Alcohol", true);
             user.setSubstancesStatus("Psilocybin", true);
             user.setSubstancesStatus("LSD", true);
+            user.setSubstancesStatus("Xanax", true);
             database = FirebaseDatabase.getInstance().getReference("users").push();
             user.setId(database.getKey());
             database.setValue(user).addOnSuccessListener(aVoid -> {

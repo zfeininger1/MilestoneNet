@@ -54,6 +54,7 @@ public class users implements Serializable {
         substances.put("Alcohol",false);
         substances.put("Psilocybin",false);
         substances.put("LSD",false);
+        substances.put("Xanax",false);
     }
     public boolean getSubstancesStatus(String substance) {
         if (!substances.containsKey(substance)) {
