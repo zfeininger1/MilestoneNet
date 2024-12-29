@@ -33,23 +33,35 @@
                 android:fontFamily="sans-serif-medium"
                 android:textSize="24sp" />
 
+<!--            <com.google.android.material.textfield.TextInputLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                app:hintEnabled="true"-->
+<!--                android:layout_marginTop="12dp"-->
+<!--                android:hint="@string/age">-->
+
+<!--                <com.google.android.material.textfield.TextInputEditText-->
+<!--                    android:id="@+id/age"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:autofillHints="Age"-->
+<!--                    android:inputType="number"-->
+<!--                    android:layout_marginTop="12dp"-->
+<!--                    android:textColor="@android:color/black"-->
+<!--                    android:textSize="16sp"/>-->
+<!--            </com.google.android.material.textfield.TextInputLayout>-->
+
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:hintEnabled="true"
-                android:layout_marginTop="12dp"
-                android:hint="@string/age">
+                android:layout_height="wrap_content">
 
-                <com.google.android.material.textfield.TextInputEditText
+                <NumberPicker
                     android:id="@+id/age"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:autofillHints="Age"
-                    android:inputType="number"
-                    android:layout_marginTop="12dp"
-                    android:textColor="@android:color/black"
-                    android:textSize="16sp"/>
+                    android:gravity="center"/>
             </com.google.android.material.textfield.TextInputLayout>
+
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/nextButton"
