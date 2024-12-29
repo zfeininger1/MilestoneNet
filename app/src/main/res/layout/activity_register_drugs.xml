@@ -34,22 +34,59 @@
                 android:fontFamily="sans-serif-medium"
                 android:textSize="24sp" />
 
-            <com.google.android.material.textfield.TextInputLayout
+            <CheckBox
+                android:id="@+id/checkBox2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:hintEnabled="true"
-                android:layout_marginTop="12dp"
-                android:hint="@string/drug">
+                android:text="Alcohol" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/drug"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:autofillHints="Drug"
-                    android:layout_marginTop="12dp"
-                    android:textColor="@android:color/black"
-                    android:textSize="16sp"/>
-            </com.google.android.material.textfield.TextInputLayout>
+            <CheckBox
+                android:id="@+id/checkBox3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cocaine" />
+
+            <CheckBox
+                android:id="@+id/checkBox4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Heroin" />
+
+            <CheckBox
+                android:id="@+id/checkBox5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ketamine" />
+
+            <CheckBox
+                android:id="@+id/checkBox6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="LSD" />
+
+            <CheckBox
+                android:id="@+id/checkBox7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Marijuana" />
+
+            <CheckBox
+                android:id="@+id/checkBox8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Methamphetamine" />
+
+            <CheckBox
+                android:id="@+id/checkBox9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Psilocybin" />
+
+            <CheckBox
+                android:id="@+id/checkBox10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Xanax" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/registerButton"
@@ -61,6 +98,7 @@
                 android:textSize="16sp"
                 android:layout_marginVertical="12dp"
                 app:cornerRadius="8dp"/>
+
         </LinearLayout>
 
     </com.google.android.material.card.MaterialCardView>

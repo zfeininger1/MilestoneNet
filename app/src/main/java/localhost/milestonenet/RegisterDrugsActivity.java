@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -22,7 +23,15 @@ import com.google.firebase.database.ValueEventListener;
 
 public class RegisterDrugsActivity extends AppCompatActivity {
     Button registerButton;
-    EditText drugName;
+    CheckBox alcohol;
+    CheckBox cocaine;
+    CheckBox heroin;
+    CheckBox ketamine;
+    CheckBox lsd;
+    CheckBox marijuana;
+    CheckBox meth;
+    CheckBox psilocybin;
+    CheckBox xanax;
     DatabaseReference database;
     private FirebaseAuth mAuth;
 
@@ -32,21 +41,29 @@ public class RegisterDrugsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register_drugs);
 
         registerButton = findViewById(R.id.registerButton);
-        drugName = findViewById(R.id.drug);
+        alcohol = findViewById(R.id.checkBox2);
+        cocaine = findViewById(R.id.checkBox3);
+        heroin = findViewById(R.id.checkBox4);
+        ketamine = findViewById(R.id.checkBox5);
+        lsd = findViewById(R.id.checkBox6);
+        marijuana = findViewById(R.id.checkBox7);
+        meth = findViewById(R.id.checkBox8);
+        psilocybin = findViewById(R.id.checkBox9);
+        xanax = findViewById(R.id.checkBox10);
         mAuth = FirebaseAuth.getInstance();
 
         registerButton.setOnClickListener(view -> {
             Intent previousIntent = getIntent();
             users user = (users) previousIntent.getSerializableExtra("newUser");
-            user.setSubstancesStatus("Marijuana", true);
-            user.setSubstancesStatus("Methamphetamine", true);
-            user.setSubstancesStatus("Ketamine", true);
-            user.setSubstancesStatus("Cocaine", true);
-            user.setSubstancesStatus("Heroin", true);
-            user.setSubstancesStatus("Alcohol", true);
-            user.setSubstancesStatus("Psilocybin", true);
-            user.setSubstancesStatus("LSD", true);
-            user.setSubstancesStatus("Xanax", true);
+            user.setSubstancesStatus("Marijuana", marijuana.isChecked());
+            user.setSubstancesStatus("Methamphetamine", meth.isChecked());
+            user.setSubstancesStatus("Ketamine", ketamine.isChecked());
+            user.setSubstancesStatus("Cocaine", cocaine.isChecked());
+            user.setSubstancesStatus("Heroin", heroin.isChecked());
+            user.setSubstancesStatus("Alcohol", alcohol.isChecked());
+            user.setSubstancesStatus("Psilocybin", psilocybin.isChecked());
+            user.setSubstancesStatus("LSD", lsd.isChecked());
+            user.setSubstancesStatus("Xanax", xanax.isChecked());
             database = FirebaseDatabase.getInstance().getReference("users").push();
             user.setId(database.getKey());
             database.setValue(user).addOnSuccessListener(aVoid -> {
