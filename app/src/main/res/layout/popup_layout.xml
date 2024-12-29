@@ -12,6 +12,11 @@
         android:text="This is a popup window triggered by the + button."
         android:textSize="16sp" />
 
+    <Spinner
+        android:id="@+id/drug_selector_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
     <Button
         android:id="@+id/popup_button"
         android:layout_width="wrap_content"

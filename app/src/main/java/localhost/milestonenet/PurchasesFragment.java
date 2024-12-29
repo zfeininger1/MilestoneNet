@@ -8,7 +8,9 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -23,6 +25,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class PurchasesFragment extends Fragment {
 
     boolean alcohol;
@@ -34,6 +39,7 @@ public class PurchasesFragment extends Fragment {
     boolean meth;
     boolean psilocybin;
     boolean xanax;
+    Spinner drugSelector;
 
     public PurchasesFragment() {
         // Required empty public constructor
@@ -81,6 +87,17 @@ public class PurchasesFragment extends Fragment {
         // Inflate the custom layout
         View popupView = getLayoutInflater().inflate(R.layout.popup_layout, null);
 
+
+        // Create the AlertDialog and set the custom view
+        android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(requireContext());
+        builder.setTitle("Add Item")
+                .setView(popupView);
+//                .setPositiveButton("OK", (dialog, which) -> dialog.dismiss());
+
+        // Show the dialog
+        android.app.AlertDialog dialog = builder.create();
+        dialog.show();
+
         String userEmail = FirebaseAuth.getInstance().getCurrentUser().getEmail();
         DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference("users");
 
@@ -89,6 +106,7 @@ public class PurchasesFragment extends Fragment {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
+                    List<String> availableDrugs = new ArrayList<>();
                     // The email exists in the database, retrieve the user's data
                     for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
                         String userId = userSnapshot.getKey();  // User's ID
@@ -104,20 +122,22 @@ public class PurchasesFragment extends Fragment {
                         xanax = userSnapshot.child("allSubstanceStatus").child("Xanax").getValue(Boolean.class);
 
                         // Retrieve any other information associated with the user
-                        Log.d("User Info", "User ID: " + userId);
-                        Log.d("User Info", "Email: " + email);
-                        Log.d("User Info", "Alcohol " + alcohol);
-                        Log.d("User Info", "Cocaine: " + cocaine);
-                        Log.d("User Info", "Heroin: " + heroin);
-                        Log.d("User Info", "Ketamine: " + ketamine);
-                        Log.d("User Info", "LSD: " + lsd);
-                        Log.d("User Info", "Marijuana: " + marijuana);
-                        Log.d("User Info", "Meth: " + meth);
-                        Log.d("User Info", "Psilocybin: " + psilocybin);
-                        Log.d("User Info", "Xanax: " + xanax);
+                        if (alcohol) availableDrugs.add("Alcohol");
+                        if (cocaine) availableDrugs.add("Cocaine");
+                        if (heroin) availableDrugs.add("Heroin");
+                        if (ketamine) availableDrugs.add("Ketamine");
+                        if (lsd) availableDrugs.add("LSD");
+                        if (marijuana) availableDrugs.add("Marijuana");
+                        if (meth) availableDrugs.add("Methamphetamine");
+                        if (psilocybin) availableDrugs.add("Psilocybin");
+                        if (xanax) availableDrugs.add("Xanax");
 
                         // Add more fields as necessary
                     }
+                    drugSelector = popupView.findViewById(R.id.drug_selector_spinner);
+                    ArrayAdapter<String> adapter = new ArrayAdapter<>(requireContext(), android.R.layout.simple_spinner_item, availableDrugs);
+                    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    drugSelector.setAdapter(adapter);
                 } else {
                     Log.d("LOGERROR", "No user found with the provided email.");
                 }
@@ -131,19 +151,12 @@ public class PurchasesFragment extends Fragment {
         });
 
 
-        // Create the AlertDialog and set the custom view
-        android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(requireContext());
-        builder.setTitle("Add Item")
-                .setView(popupView);
-//                .setPositiveButton("OK", (dialog, which) -> dialog.dismiss());
-
-        // Show the dialog
-        android.app.AlertDialog dialog = builder.create();
-        dialog.show();
 
         // Set an onClickListener for the button inside the popup
         Button popupButton = popupView.findViewById(R.id.popup_button);
         popupButton.setOnClickListener(v -> {
+            String selectedDrug =  (String) drugSelector.getSelectedItem();
+            Log.d("LOGERROR", selectedDrug);
             // Handle button click here
             // For example, dismiss the dialog
             dialog.dismiss();
