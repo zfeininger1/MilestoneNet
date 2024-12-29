@@ -33,33 +33,39 @@
                 android:fontFamily="sans-serif-medium"
                 android:textSize="24sp" />
 
-            <com.google.android.material.textfield.TextInputLayout
+            <!-- RadioGroup for gender selection -->
+            <RadioGroup
+                android:id="@+id/genderGroup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:hintEnabled="true"
-                android:layout_marginTop="12dp"
-                android:hint="@string/gender">
+                android:orientation="vertical"
+                android:layout_marginTop="16dp">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/gender"
-                    android:layout_width="match_parent"
+                <RadioButton
+                    android:id="@+id/maleButton"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:autofillHints="Gender"
-                    android:inputType="text"
-                    android:textColor="@android:color/black"
-                    android:textSize="16sp"/>
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:text="Male"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="8dp" />
+
+                <RadioButton
+                    android:id="@+id/femaleButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Female"
+                    android:textSize="16sp" />
+            </RadioGroup>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/nextButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="24dp"
                 android:text="@string/next"
-                android:layout_marginVertical="12dp"
                 android:textColor="@android:color/white"
                 android:textSize="16sp"
-                app:cornerRadius="8dp"/>
+                app:cornerRadius="8dp" />
         </LinearLayout>
 
     </com.google.android.material.card.MaterialCardView>
