@@ -20,14 +20,16 @@ public class RegisterAgeActivity extends AppCompatActivity {
 
         nextButton = findViewById(R.id.nextButton);
         age = findViewById(R.id.age);
-        age.setMinValue(13);
+        age.setMinValue(18);
         age.setMaxValue(100);
+        age.setValue(18);
+        age.setWrapSelectorWheel(false);
 
         nextButton.setOnClickListener(view -> {
             Intent previousIntent = getIntent();
             users user = (users) previousIntent.getSerializableExtra("newUser");
             assert user != null;
-            user.setAge(age.toString());
+            user.setAge(String.valueOf(age.getValue()));
 
             Intent intent = new Intent(RegisterAgeActivity.this, RegisterGenderActivity.class);
             intent.putExtra("newUser", user);
